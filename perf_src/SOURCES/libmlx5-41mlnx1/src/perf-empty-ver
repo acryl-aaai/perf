@@ -1,0 +1,224 @@
+#include "perf.h"
+#include "khash.h"
+
+void wr_copy(struct ibv_send_wr* dest_wr, struct ibv_send_wr* src_wr)
+{
+}
+
+void enqueue_wr(uint32_t q_idx, struct ibv_send_wr* wr)
+{
+}
+
+struct ibv_send_wr* get_queued_wr(uint32_t q_idx, uint32_t pwr_idx)
+{
+  return NULL;
+}
+
+void enqueue_recv_wr(uint32_t q_idx, struct ibv_recv_wr* wr)
+{
+}
+
+struct ibv_recv_wr* get_queued_recv_wr(uint32_t q_idx, uint32_t pwr_idx)
+{
+  return NULL;
+}
+
+void dequeue_recv_wr(uint32_t q_idx, uint32_t num)
+{
+}
+
+void perf_thread_end()
+{
+}
+
+void* perf_thread(void *para)
+{
+  return NULL;
+}
+
+void load_perf_config()
+{
+}
+
+void update_qp_ctx(struct ibv_qp *qp, uint32_t max_send_wr, uint32_t max_recv_wr, uint32_t origin_max_send_wr, uint32_t origin_max_recv_wr, int sig_all)
+{
+}
+
+void update_cq_ctx(struct ibv_qp *qp, uint32_t max_send_wr)
+{
+}
+
+void update_tenant_ctx()
+{
+}
+
+void update_mqp_ctx()
+{
+}
+
+void perf_create_master_qp(uint32_t mqp_idx)
+{
+}
+
+
+void update_perf_state(struct ibv_qp *qp, uint32_t max_send_wr, uint32_t max_recv_wr, uint32_t origin_max_send_wr, uint32_t origin_max_recv_wr, int sig_all)
+{
+}
+
+void perf_destroy_qp()
+{
+}
+
+void perf_early_poll_cq()
+{
+}
+
+void perf_update_tenant_state()
+{
+}
+
+void perf_mqp_process()
+{
+}
+
+int perf_process(struct ibv_qp *qp, struct ibv_send_wr *wr)
+{
+  return PERF_BYPASS;
+}
+
+void perf_poll_post(struct ibv_qp *qp, struct ibv_send_wr *wr, uint32_t size)
+{
+}
+
+
+void perf_bg_post(struct ibv_qp *qp, struct ibv_send_wr *wr)
+{
+}
+int perf_recv_process(struct ibv_qp *qp, struct ibv_recv_wr *wr)
+{
+  return PERF_BYPASS;
+}
+
+
+void perf_bg_recv_post(struct ibv_qp *qp, struct ibv_recv_wr *wr)
+{
+}
+
+void perf_init_pause_state()
+{
+}
+
+bool perf_check_paused(uint32_t q_idx)
+{
+  return 0;
+}
+
+void perf_allowed_release(uint32_t q_idx)
+{
+}
+
+void perf_wr_queue_manage()
+{
+}
+
+void perf_recv_wr_queue_manage()
+{
+}
+
+bool perf_small_process(uint32_t q_idx, struct ibv_send_wr *wr, uint32_t nreq)
+{
+  return true;
+}
+
+bool perf_large_process(uint32_t q_idx, struct ibv_send_wr *wr, uint64_t size)
+{
+    return false;
+}
+
+
+bool perf_large_recv_process(uint32_t q_idx, struct ibv_recv_wr *wr, uint64_t size)
+{
+  return 0;
+}
+
+void perf_update_active_state(uint32_t q_idx)
+{
+}
+
+void perf_preemption_process(struct ibv_qp  *qp, uint32_t nreq, bool is_read)
+{
+}
+
+int perf_poll_cq(struct ibv_cq *cq, uint32_t ne, struct ibv_wc *wc)
+{
+  return  0;
+}
+
+void perf_create_read_qp()
+{
+}
+
+
+void perf_set_dest_info(struct ibv_qp *qp, union ibv_gid dgid, int sgid_idx)
+{
+}
+
+void* perf_exchange_read_qpn()
+{
+  return NULL;
+}
+
+void send_read_request(uint32_t q_idx, struct ibv_send_wr *wr)
+{
+}
+
+
+void process_read_request(void* req_ptr, struct ibv_send_wr* wr, struct ibv_send_wr* comp_wr)
+{
+}
+
+void post_cmd_recv_wrs(uint32_t polled)
+{
+}
+
+int perf_poll_read_cmd()
+{
+  return 0;
+}
+
+void* get_next_read_header()
+{
+  return NULL;
+}
+
+void perf_resp_read_cmd()
+{
+}
+
+void perf_send_read_report(uint32_t q_idx)
+{
+}
+
+//EXP is not supported yet.
+int perf_exp_process(struct ibv_qp *qp, struct ibv_exp_send_wr *wr)
+{
+  return PERF_BYPASS;
+}
+void perf_exp_small_process(uint32_t q_idx, struct ibv_exp_send_wr *wr, uint32_t nreq) {}
+void perf_exp_large_process(uint32_t q_idx, struct ibv_exp_send_wr *wr, uint64_t size) {}
+void perf_exp_bg_post(struct ibv_qp *qp, struct ibv_exp_send_wr *wr) {}
+void perf_exp_poll_post(struct ibv_qp *qp, struct ibv_exp_send_wr *wr, uint32_t size) {}
+int perf_exp_recv_process(struct ibv_qp *qp, struct ibv_recv_wr *wr)
+{
+  return PERF_BYPASS;
+}
+void perf_exp_bg_recv_post(struct ibv_qp *qp, struct ibv_recv_wr *wr) {}
+int perf_exp_poll_cq(struct ibv_cq *cq, uint32_t ne, struct ibv_exp_wc *wc, uint32_t wc_size)
+{
+  return 0;
+}
+
+
+
+
+

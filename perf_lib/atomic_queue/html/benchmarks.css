@@ -1,0 +1,34 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+div.chart {
+    height: 500px;
+    margin-top: 2em;
+}
+
+p.copyright {
+    color: #A0A0A0;
+    text-align: left;
+    font-size: 0.8em;
+}
+
+h1, h2, h3 {
+    margin-left: 20px;
+}
+
+p, li {
+    color: #A0A0A0;
+    margin-left: 20px;
+}
+
+span.tooltip_scalability_title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+table.tooltip_scalability {
+    text-align: right;
+}

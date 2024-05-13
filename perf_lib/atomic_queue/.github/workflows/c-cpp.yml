@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Boost
+      run: sudo apt-get --quiet --yes install libboost-all-dev
+    - name: Environment variables
+      run: make env; make TOOLSET=gcc versions; make TOOLSET=clang versions
+    - name: Unit tests with gcc
+      run: make -rj2 TOOLSET=gcc example run_tests
+    - name: Unit tests with clang
+      run: make -rj2 TOOLSET=clang example run_tests
