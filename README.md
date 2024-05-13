@@ -1,22 +1,27 @@
+# PeRF: Preemption-enabled RDMA Framework
 
-# PeRF
+## Overview
 
-Preemption-enabled RDMA Framework
+PeRF is a software-based framework designed to enhance performance isolation and maintain bare-metal RDMA performance in multi-tenant cloud environments. Utilizing a novel preemption mechanism at the RNIC level, PeRF dynamically manages RDMA resource allocation without the need for accurate estimation of network resources, ensuring optimal utilization and preventing performance degradation.
 
-## Pre-requisite
+## System Requirements
 
-PeRF is tested on Ubuntu 20.04 (5.4.0-100-generic) and Mellanox Driver (MLNX_OFED_LINUX-4.9-4.1.7.0-ubuntu20.04-x86_64).
+- **OS**: Ubuntu 20.04 (5.4.0-100-generic)
+- **Hardware**: RDMA-capable network interface cards (RNICs)
+- **Driver**: Mellanox Driver (MLNX_OFED_LINUX-4.9-4.1.7.0-ubuntu20.04-x86_64)
 
-## How to Build PeRF
-```
+## Getting Started
+
+### Installation
+
+Clone the repository and compile the PeRF framework:
+
+```bash
 git clone https://github.com/acryl-aaai/perf.git
 cd perf
 ./build_perf.sh
 ```
 You can get back to the original driver mode by executing ```./build_origin.sh```.
-
-
-## How to Run PeRF
 
 ### Configuration 
 
@@ -107,3 +112,9 @@ Here we simulate B_App<sub>single</sub> vs. D_App<sub>single</sub> between Node 
 	# D_App
 	ib_write_lat -F -s 16 -n 5000000 -p 9001 10.0.102.2
 	```
+
+## Contributing
+Contributions to PeRF are welcome. Please ensure to follow coding standards and submit pull requests for review.
+
+## Support
+For questions or support, please open an issue in the GitHub repository.
