@@ -55,14 +55,14 @@ Make sure to fill in the correct values for the ```gid_idx``` and ```remote_ip``
 | Environment Variable | Description | Recommended Value |
 | :---: | :--- | ---: |
 | PERF_ENABLE |  Enables (1) or disables (0) the operational algorithm of the PeRF | 0 or 1 |
-| PERF_IS_SERVER | Set to 1 for servers receiving messages; set to 0 for clients sending messages. | 0 or 1 |
+| PERF_IS_SERVER | Set to 1 for servers listening RDMA connections; set to 0 for clients requesting RDMA connections. | 0 or 1 |
 | PERF_GIDX | Index of the GID to be used. (Find the appropriate GID from the list provided by the 'show_gids' command.) | - |
-| PERF_REMOTE_IP | IP address of the remote server. Used for READ operations. | - |
-| PERF_CHUNK_SIZE<br>(*SUB_MSG_SIZE*) | The unit size (in Bytes) for splitting large messages to achieve message-level isolation. A smaller chunk size results in higher CPU overhead and reduced throughput. Instead, it improves the performance of applications sending small messages. For more detailed information, refer to Appendix A. | 16384 |
-| PERF_DUMMY_FACTOR<br>(0_*WAIT_UNIT*) | A unit size (in Bytes) used to calculate the number of additional 0_WAIT WRs to be inserted when sending a single chunk. For example, if this value is 1KB, then when sending a 16KB chunk, 16KB / 1KB = 16, meaning that for each chunk sent, 16 0_WAIT WRs are generated and preempted. For more detailed information, refer to Appendix A. | 1024 |
+| PERF_CHUNK_SIZE<br>(*SUB_MSG_SIZE*) | The unit size (in Bytes) for splitting large messages to achieve message-level isolation. A smaller chunk size results in higher CPU overhead and reduced throughput. Instead, it improves the performance of applications sending small messages. For more detailed information, refer to Appendix A in our paper. | 16384 |
+| PERF_DUMMY_FACTOR<br>(0_*WAIT_UNIT*) | A unit size (in Bytes) used to calculate the number of additional 0_WAIT WRs to be inserted when sending a single chunk. For example, if this value is 1KB, then when sending a 16KB chunk, 16KB / 1KB = 16, meaning that for each chunk sent, 16 0_WAIT WRs are generated and preempted. For more detailed information, refer to Appendix A in our paper. | 1024 |
+| PERF_REMOTE_IP | IP address of the remote node. Used for READ operations. | - |
 | PERF_READ_PORT | The UDP port used for RPC when performing RDMA READ operations. (User-defined port number) | - |
 | PERF_IB_PORT | The NIC's port number to be used. | - |
-| TB_TARGET_RATE |  |  |
+| TB_TARGET_RATE | To use a token bucket, set this value greater than 0 (bytes per second). To disable the token bucket, set this value to 0. | - |
  
 ### Command Examples
 Here are some commands for executing [Perftest](https://github.com/linux-rdma/perftest) applications.
