@@ -1,5 +1,6 @@
 # PeRF: Preemption-enabled RDMA Framework
- 
+This project is accepted in USENIX ATC'24 ([PeRF: Preemption-enabled RDMA Framework](https://www.usenix.org/conference/atc24/presentation/lee)).
+
 ## Overview
  
 PeRF is a software-based framework designed to enhance performance isolation and maintain bare-metal RDMA performance in multi-tenant cloud environments. Utilizing a novel preemption mechanism at the RNIC level, PeRF dynamically manages RDMA resource allocation without the need for accurate estimation of network resources, ensuring optimal utilization and preventing performance degradation.
